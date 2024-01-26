@@ -7,8 +7,13 @@
     {% for content in content_list %}
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
         <div class="col-lg-7">
-            <img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg"
+            {% if content.main_image %}
+            <img class="img-fluid rounded mb-4 mb-lg-0" src="{{ content.main_image.url }}"
                  alt="..."/>
+            {% else %}
+            <!-- 이미지가 없는 경우에 대한 처리 -->
+            <p>No image available</p>
+            {% endif %}
         </div>
         <div class="col-lg-5">
             <h1 class="font-weight-light">{{ content.title }}</h1>
